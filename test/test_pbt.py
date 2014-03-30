@@ -1,7 +1,6 @@
 """test for pbt.py"""
 import os
 import sys
-sys.path.append("src")
 from pbt import *
 import unittest
 
@@ -175,7 +174,7 @@ class PbtTestCase(unittest.TestCase):
         self.assertEqual(settings.entry_point, ["src/pbt_cli.py", "run"])
         self.assertEqual(settings.python_cmd, "~/bin/pypy")
         self.assertEqual(settings.python_opts, ["-tt"])
-        self.assertEqual(settings.source_paths, ["src"])
+        self.assertEqual(settings.packages, ["null"])
         self.assertEqual(settings.test_paths, ["test"])
         self.assertEqual(settings.resource_paths, ["resources"])
         self.assertEqual(settings.target_path, "target")
@@ -217,10 +216,10 @@ class PbtTestCase(unittest.TestCase):
         self.assertEqual(settings.plugins, [])
         self.assertEqual(settings.repositories, [])
         self.assertEqual(settings.plugin_repositories, [])
-        self.assertEqual(settings.entry_point, ["src/main.py", "main"])
+        self.assertEqual(settings.entry_point, ["no-name/main.py", "main"])
         self.assertEqual(settings.python_cmd, "python3")
         self.assertEqual(settings.python_opts, [])
-        self.assertEqual(settings.source_paths, ["src"])
+        self.assertEqual(settings.packages, ["no-name"])
         self.assertEqual(settings.test_paths, ["test"])
         self.assertEqual(settings.resource_paths, ["resources"])
         self.assertEqual(settings.target_path, "target")
@@ -257,7 +256,7 @@ class PbtTestCase(unittest.TestCase):
         self.assertEqual(settings.entry_point, ["src/pbt_cli.py", "run"])
         self.assertEqual(settings.python_cmd, "~/bin/pypy")
         self.assertEqual(settings.python_opts, ["-tt"])
-        self.assertEqual(settings.source_paths, ["src"])
+        self.assertEqual(settings.packages, ["null"])
         self.assertEqual(settings.test_paths, ["test"])
         self.assertEqual(settings.resource_paths, ["resources"])
         self.assertEqual(settings.target_path, "target")
